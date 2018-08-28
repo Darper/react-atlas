@@ -108,11 +108,11 @@ export class Checkbox extends React.PureComponent {
           "status": this._getStatus(false),
           "message": messages.requiredMessage
         };
-    console.log(validationObject);
     this.setState({
       "status": validationObject.status,
       "message": validationObject.message
     });
+    return validationObject;
   };
 
   render() {
@@ -134,6 +134,7 @@ export class Checkbox extends React.PureComponent {
 
     // Declaring the following variables so they don't get passed to the input through the prop spread.
     const othersFiltered = blacklist(others, "onBeforeChange", "valid");
+    console.log(othersFiltered);
 
     const inlineCheckbox = cx({
       "inline_block": inline,

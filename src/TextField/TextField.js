@@ -137,6 +137,7 @@ export class TextField extends React.PureComponent {
       "status": validationObject.status,
       "message": validationObject.message
     });
+    return validationObject;
   };
 
   _handleChange = e => {

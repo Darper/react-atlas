@@ -27,7 +27,6 @@ export class CheckboxGroup extends React.PureComponent {
 
   // When child <Checkbox /> component changes state, update "totalChecked" value and verify against min or max props value
   handleChange = data => {
-    console.log(this.state.totalChecked);
     const newChecked = data.checked
       ? this.state.totalChecked + 1
       : this.state.totalChecked - 1;
@@ -47,14 +46,15 @@ export class CheckboxGroup extends React.PureComponent {
 
   // Used from a parent Form component to validate only
   _formValidate = () => {
-    console.log("hey");
     if (
       this.props.max && this.state.totalChecked > this.props.max ||
       this.props.min && this.state.totalChecked < this.props.min
     ) {
       this.setState({ "groupError": true });
+      return {status: "error", message: this.maxMinMessage()};
     } else {
       this.setState({ "groupError": false });
+      return {status: null, message: null};
     }
   };
 

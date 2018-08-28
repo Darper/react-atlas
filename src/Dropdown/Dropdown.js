@@ -283,6 +283,7 @@ export class Dropdown extends React.PureComponent {
       "status": validationObject.status,
       "message": validationObject.message
     });
+    return validationObject;
   };
 
   // Callback function passed to each option to register click events
